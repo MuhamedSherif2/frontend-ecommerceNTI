@@ -1,0 +1,49 @@
+@if (user) {
+<section class="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        User Profile
+    </h2>
+
+    <div class="space-y-4">
+        <div class="flex justify-between border-b pb-2">
+            <span class="font-semibold text-gray-700">Name:</span>
+            <span class="text-gray-600">{{ user.name }}</span>
+        </div>
+
+        <div class="flex justify-between border-b pb-2">
+            <span class="font-semibold text-gray-700">Email:</span>
+            <span class="text-gray-600">{{ user.email }}</span>
+        </div>
+
+        <div class="flex justify-between border-b pb-2">
+            <span class="font-semibold text-gray-700">Phone:</span>
+            <span class="text-gray-600">{{ user.phoneNumber }}</span>
+        </div>
+
+        <div class="flex justify-between border-b pb-2">
+            <span class="font-semibold text-gray-700">Address:</span>
+            <span class="text-gray-600">{{ user.address }}</span>
+        </div>
+
+
+    </div>
+
+    <div class="mt-6 text-center">
+        <button class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow">
+            Edit Profile
+        </button>
+    </div>
+</section>
+}@else {
+<section
+    class="flex flex-col items-center justify-center h-[70vh] text-center bg-gray-50 px-4 rounded-2xl shadow-inner">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">You are not logged in</h2>
+    <p class="text-gray-600 mb-6 max-w-md">
+        Please log in to view your profile and manage your account.
+    </p>
+    <a routerLink="login"
+        class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white cursor-pointer font-semibold rounded-lg shadow transition-all duration-200">
+        Go to Login
+    </a>
+</section>
+}

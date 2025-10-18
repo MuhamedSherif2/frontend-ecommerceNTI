@@ -1,0 +1,30 @@
+<div class="bg-white p-6 rounded-xl shadow-md mb-6">
+    <h3 class="text-xl font-bold text-[#234C6A] mb-4">
+      {{ productData ? 'Update Product' : 'Add Product' }}
+    </h3>
+  
+    <form [formGroup]="addproduct" (ngSubmit)="onSubmit()" class="grid gap-4">
+      <input formControlName="title" placeholder="Title" class="input" />
+      <input formControlName="description" placeholder="Description" class="input" />
+      <input formControlName="price" placeholder="Price" type="number" class="input" />
+      <input formControlName="category" placeholder="Category" class="input" />
+      <input formControlName="subcategory" placeholder="Subcategory" class="input" />
+      <input formControlName="slug" placeholder="Slug" class="input" />
+      <input type="file" formControlName="img" class="input" />
+  
+      <div class="flex justify-between">
+        <button
+          type="submit"
+          class="bg-[#234C6A] hover:bg-[#3b82b8] text-white px-4 py-2 rounded-md">
+          {{ productData ? 'Update' : 'Add' }}
+        </button>
+        <button
+          type="button"
+          (click)="closeForm()"
+          class="bg-gray-300 text-black px-4 py-2 rounded-md">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+  

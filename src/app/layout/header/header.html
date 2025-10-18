@@ -1,0 +1,69 @@
+<header class="bg-[#D2C1B6] shadow-md fixed w-full top-0 left-0 z-50">
+    <nav class="container mx-auto flex justify-between items-center px-4 py-3">
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold text-[#1B3C53]">LOGO</h1>
+  
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex items-center gap-8">
+        <li>
+          <a routerLink="home"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Home</a>
+        </li>
+        <li>
+          <a routerLink="products"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Products</a>
+        </li>
+        <li>
+          <a routerLink="account"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Account</a>
+        </li>
+  
+        @if (user) {
+        <li class="flex flex-col text-center">
+          <span class="text-sm text-gray-600">Hello,</span>
+          <span class="font-bold text-[#1B3C53]">{{ user.name }}</span>
+          <a class="text-[#1B3C53] text-lg font-semibold cursor-pointer hover:text-[#456882] transition-all" (click)="logOut()">Logout</a>
+        </li>
+        } @else {
+        <li>
+          <a routerLink="login"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Login</a>
+        </li>
+        }
+      </ul>
+  
+      <!-- Mobile Menu Icon -->
+      <button class="lg:hidden text-[#1B3C53]" (click)="openNav()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  
+    <!-- Mobile Menu -->
+    @if (isToggle) {
+    <div class="lg:hidden bg-[#D2C1B6] shadow-md" (click)="openNav()">
+      <ul class="flex flex-col items-center gap-4 py-4">
+        <li><a routerLink="home"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Home</a></li>
+        <li><a routerLink="products"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Products</a></li>
+        <li><a routerLink="account"
+            class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Account</a></li>
+  
+        @if (user) {
+        <div class="flex flex-col items-center">
+          <span class="text-gray-700">Hello, <span class="font-bold">{{ user.name }}</span></span>
+          <a class="text-[#1B3C53] text-lg font-semibold cursor-pointer hover:text-[#456882] transition-all" (click)="logOut()">Logout</a>
+        </div>
+        } @else {
+        <li>
+            <a routerLink="login" class="text-[#1B3C53] text-lg font-semibold hover:text-[#456882] transition-all">Login</a>
+        </li>
+        }
+      </ul>
+    </div>
+    }
+  </header>
+  

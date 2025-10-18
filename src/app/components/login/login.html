@@ -1,0 +1,45 @@
+<section class="w-full min-h-screen bg-[#D2C1B6] flex flex-col justify-center items-center py-10">
+    <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()"
+        class="bg-white p-8 rounded-xl shadow-lg w-[400px] flex flex-col gap-6">
+        <h2 class="text-3xl font-bold text-[#1B3C53] text-center">Login</h2>
+
+        <!-- Email -->
+        <div class="flex flex-col">
+            <label for="email" class="text-xl text-[#1B3C53] font-bold">Email</label>
+            <input id="email" type="text" formControlName="email" placeholder="Your Email"
+                class="mt-2 py-2 px-3 border border-[#456882] rounded-md text-[#234C6A] placeholder:text-[#5a7c96] font-semibold outline-none focus:ring-2 focus:ring-[#3b82b8]" />
+        </div>
+
+        <!-- Password -->
+        <div class="flex flex-col">
+            <label for="password" class="text-xl text-[#1B3C53] font-bold">Password</label>
+            @if(toggelPassword == false){
+            <input type="password" id="password" formControlName="password" placeholder="Your Password"
+                class="mt-2 py-2 px-3 border border-[#456882] rounded-md text-[#234C6A] placeholder:text-[#5a7c96] font-semibold outline-none focus:ring-2 focus:ring-[#3b82b8]" />
+            }@else {
+            <input type="text" id="password" formControlName="password" placeholder="Your Password"
+                class="mt-2 py-2 px-3 border border-[#456882] rounded-md text-[#234C6A] placeholder:text-[#5a7c96] font-semibold outline-none focus:ring-2 focus:ring-[#3b82b8]" />
+            }
+
+            <div class="flex gap-3 mt-3">
+                <input type="checkbox" id="toggle" (click)="showPassword()">
+                <label for="toggle" class="text-[#234C6A]">Show Password</label>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <button type="submit"
+            class="mt-4 text-white text-lg px-4 py-2 bg-[#3b82b8] font-bold rounded-md cursor-pointer hover:text-[#3b82b8] hover:bg-[#234C6A] transition-all duration-300">
+            Login
+        </button>
+        <div class="mt-4 text-[#1B3C53] text-lg">
+            You don't have an account?
+            <button
+                class="text-[#3b82b8] font-bold underline cursor-pointer hover:no-underline transition-all duration-300"
+                (click)="navigation()">
+                Create Account
+            </button>
+        </div>
+    </form>
+
+</section>

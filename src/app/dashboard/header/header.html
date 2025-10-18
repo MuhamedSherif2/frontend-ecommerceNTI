@@ -1,0 +1,88 @@
+<header class="bg-[#D2C1B6] py-3">
+    <nav class="flex justify-between gap-6">
+        <h1 class="text-2xl font-bold">Admin</h1>
+        <ul class="hidden lg:flex gap-6">
+            <li>
+                <a routerLink="/" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Home-Layout
+                </a>
+            </li>
+            <li>
+                <a routerLink="product" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Products
+                </a>
+            </li>
+            <li>
+                <a routerLink="users" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Users
+                </a>
+            </li>
+            <li>
+                <a routerLink="register" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Register
+                </a>
+            </li>
+            <div>
+                @if(login === true){
+                <button (click)="logout()"
+                    class="bg-[#3b82b8] px-4 py-2 rounded-md font-semibold hover:bg-[#2a618a] transition cursor-pointer">
+                    Logout
+                </button>
+                }@else {
+                <button (click)="openLogIn()"
+                    class="bg-[#3b82b8] px-4 py-2 rounded-md font-semibold hover:bg-[#2a618a] transition cursor-pointer">
+                    login
+                </button>
+                }
+            </div>
+        </ul>
+        @if (isToggle === false) {
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-menu-icon lucide-menu text-2xl font-bold text-[#1B3C53] cursor-pointer block lg:hidden"
+            (click)="openNav()">
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+        </svg>
+        }@else{
+        <ul class="block lg:hidden absolute right-0 bg-[#D2C1B6] h-full w-[70%] md:w-[50%] text-center pt-10"
+            (click)="openNav()">
+            <li>
+                <a routerLink="/" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Home-Layout
+                </a>
+            </li>
+            <li>
+                <a routerLink="product" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Products
+                </a>
+            </li>
+            <li>
+                <a routerLink="users" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Users
+                </a>
+            </li>
+            <li>
+                <a routerLink="register" routerLinkActive="text-[#3b82b8]"
+                    class="text-[#1B3C53] text-xl font-bold hover:text-[#456882] transition-all duration-300">Register
+                </a>
+            </li>
+            <div>
+                @if(login === true){
+                <button (click)="logout()"
+                    class="bg-[#3b82b8] px-4 py-2 rounded-md font-semibold hover:bg-[#2a618a] transition cursor-pointer">
+                    Logout
+                </button>
+                }@else {
+                <button (click)="openLogIn()"
+                    class="bg-[#3b82b8] px-4 py-2 rounded-md font-semibold hover:bg-[#2a618a] transition cursor-pointer">
+                    login
+                </button>
+                }
+            </div>
+        </ul>
+        }
+
+    </nav>
+</header>

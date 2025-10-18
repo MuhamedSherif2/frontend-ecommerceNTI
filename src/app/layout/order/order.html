@@ -1,0 +1,15 @@
+<section class="p-4 space-y-4">
+    <h2 class="text-2xl font-bold mb-4 text-center">My Orders</h2>
+
+    <div class="border rounded-xl p-4 shadow-md bg-white">
+        @for (order of orders; track $index) {
+            <p><b>Status:</b> {{ order.status }}</p>
+            <p><b>Total:</b> {{ order.totalPrice }} EGP</p>
+            <p><b>Date:</b> {{ order.createdAt }}</p>
+    
+            <button *ngIf="order.status !== 'cancelled' && order.status !== 'delivered'" (click)="cancelOrder(order._id)" class="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600 transition">
+                Cancel
+            </button>
+        }
+    </div>
+</section>
