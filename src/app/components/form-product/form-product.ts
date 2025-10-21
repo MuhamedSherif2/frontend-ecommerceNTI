@@ -3,6 +3,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductServices } from '../../cors/services/product/product-services';
 import { IProduct } from '../../cors/interfaces/products.interface';
+import { Category } from '../../cors/services/category/category';
+import { SubCategory } from '../../cors/services/subCategory/sub-category';
+import { ICategoriesResponse, ISubCategoriesResponse } from '../../cors/interfaces/category.interface';
 
 @Component({
   selector: 'app-form-product',
@@ -11,8 +14,11 @@ import { IProduct } from '../../cors/interfaces/products.interface';
   templateUrl: './form-product.html',
   styleUrls: ['./form-product.css']
 })
-export class FormProduct implements OnInit, OnChanges {
-  constructor(private productService: ProductServices) {}
+export class FormProduct implements OnChanges {
+  constructor(private productService: ProductServices, private _categoryServices: Category, private _subCategoryServices: SubCategory) {}
+
+  category !: ICategoriesResponse
+  subCategory !: ISubCategoriesResponse
 
   @Input() productData: IProduct | null = null;
   @Output() formClosed = new EventEmitter<void>();
@@ -27,8 +33,6 @@ export class FormProduct implements OnInit, OnChanges {
     img: new FormControl('')
   });
 
-  
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['productData'] && this.productData) {
@@ -42,7 +46,7 @@ export class FormProduct implements OnInit, OnChanges {
     if (this.productData) {
       this.productService.updateProduct(this.productData, this.productData.slug).subscribe({
         next: () => {
-          alert('✅ Product updated successfully');
+          alert('Product updated successfully');
           this.formClosed.emit();
         },
         error: err => console.error(err)
@@ -50,7 +54,7 @@ export class FormProduct implements OnInit, OnChanges {
     } else {
       this.productService.addProduct(formValue).subscribe({
         next: () => {
-          alert('✅ Product added successfully');
+          alert('Product added successfully');
           this.formClosed.emit();
         },
         error: err => console.error(err)
@@ -61,4 +65,12 @@ export class FormProduct implements OnInit, OnChanges {
   closeForm() {
     this.formClosed.emit();
   }
+
+  // showCategory(){
+  //   this.category = this._categoryServices.getCategory()
+  // }
+
+  // showSubCategory(){
+  //   this.subCategory = this._subCategoryServices.getSubCategory()
+  // }
 }

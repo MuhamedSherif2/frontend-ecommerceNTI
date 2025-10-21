@@ -1,10 +1,23 @@
 export interface ISubCategory{
-    _id: string,
     name:string,
     category: string
 }
 
 export interface ICategory{
-    _id:string,
     name: string
+}
+
+export interface IResponse{
+    message: string,
+    data: string
+}
+
+export interface ISubCategoriesResponse{
+    message: string,
+    data: ISubCategory[]
+}
+
+export interface ICategoriesResponse {
+    message: string,
+    data: ICategory[]
 }

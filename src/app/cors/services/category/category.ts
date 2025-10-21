@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environment/evironment';
-import { IResponse } from '../../interfaces/user.interface';
+import { ICategory } from '../../interfaces/category.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,10 @@ export class Category {
   apiURl = environment.apiURl + 'category/'
 
   getCategory(){
-    return this._http.get<IResponse>(this.apiURl)
+    return this._http.get(this.apiURl)
   }
 
   addCategory(name : string){
-    return this._http.post(this.apiURl + '' , name)
+    return this._http.post<ICategory>(this.apiURl + 'add' , name)
   }
 }

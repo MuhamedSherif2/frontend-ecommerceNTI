@@ -15,7 +15,7 @@ export class CartService {
     return this.http.get<ICartResponse>(this.baseUrl);
   }
 
-  clearCart(id: string) {
+  clearFromCart(id: string) {
     return this.http.delete<ICartResponse>(`${this.baseUrl}${id}`);
   }
 

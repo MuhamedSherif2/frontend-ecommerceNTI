@@ -1,1 +1,38 @@
-<p>form-category works!</p>
+<section class="p-6 max-w-md mx-auto bg-white shadow-md rounded-xl border border-gray-200 mt-10">
+    <div class="mb-6 text-center">
+      <button
+        type="button"
+        class="bg-[#3b82b8] hover:bg-[#2c699d] text-white px-6 py-2 rounded-lg font-semibold shadow transition"
+        (click)="openFormCategory()"
+      >
+        Add SubCategory
+      </button>
+    </div>
+  
+    @if (toggleForm == true) {
+      <form action="" [formGroup]="categoryFormGroup" class="space-y-5">
+        <div class="flex flex-col">
+          <label for="email" class="text-lg text-[#1B3C53] font-bold mb-2">
+            Category Name
+          </label>
+          <input
+            id="email"
+            type="text"
+            formControlName="nameCategory"
+            placeholder="Enter Category Name"
+            class="py-2 px-3 border border-[#456882] rounded-md text-[#234C6A] placeholder:text-[#5a7c96] font-medium outline-none focus:ring-2 focus:ring-[#3b82b8] transition"
+          />
+        </div>
+  
+        <div class="text-center">
+          <button
+            type="button"
+            class="bg-[#1B3C53] hover:bg-[#234C6A] text-white px-6 py-2 rounded-md font-semibold shadow transition"
+          >
+            Add Category
+          </button>
+        </div>
+      </form>
+    }
+  </section>
+  
