@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { ICartResponse } from '../../interfaces/cart.interface';
+import { ICartItem, ICartResponse } from '../../interfaces/cart.interface';
 import { environment } from '../../../environment/evironment';
 
 
@@ -15,8 +15,8 @@ export class CartService {
     return this.http.get<ICartResponse>(this.baseUrl);
   }
 
-  clearFromCart(id: string) {
-    return this.http.delete<ICartResponse>(`${this.baseUrl}${id}`);
+  clearFromCart(cartId: string, productId: string) {
+    return this.http.delete<ICartResponse>(`${this.baseUrl}delete/${cartId}/${productId}`);
   }
 
   addProductToCart(productId: string, quantity: number = 1) {

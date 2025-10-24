@@ -4,18 +4,23 @@ export interface ICartResponse {
   success: boolean;
   message: string;
   numOfCartItems: number;
-  data: CartItem;
+  data: ICartItem[];
 }
 
-export interface CartItem {
+export interface ICartItem {
   _id: string;
-  cartOwner: string;
+  user?: string;
   products: {
-    product: IProduct;
+    product: {
+      _id: string;
+      title: string;
+      price: number;
+      img: string;
+      description: string;
+    };
     quantity: number;
     _id: string;
   }[];
-  totalPrice: number;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
